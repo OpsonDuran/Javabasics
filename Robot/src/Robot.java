@@ -1,28 +1,50 @@
-public class Robot {
-    private int currentx;
-    private int currenty;
-    private int  previusx;
-    private int  previusy;
+public class Robot{
+    private int currentX;
+    private int currentY;
+    private int previousX;
+    private int previousY;
+
 
     public Robot(){
-        this.currentx =0;
-        this.currenty =5;
+        this.currentX=0;
+        this.currentY=5;
+        this.previousX=0;
+        this.previousY=0;
     }
-    public void moveX(int dx){
-        this.previusy=this.currenty;
-        this.previusx=this.currentx;
-        this.currentx +=dx;
+    public Robot(int currentX, int currentY) {
+        this.currentX = currentX;
+        this.currentY = currentY;
+        this.previousX = 0;
+        this.previousY = 0;
+    }
+
+    public void moveX(int dx) {
+        previousY = currentY;
+        previousX = currentX;
+        currentX += dx;
 
     }
-    public void moveY(int dy){
-        this.previusy=this.currenty;
-        this.previusx=this.currentx;
-        this.currenty +=dy;
+
+    public void moveY(int dy) {
+        previousY = currentY;
+        previousX = currentX;
+        currentY += dy;
     }
-    public void printCurrentCordinates(){
-        System.out.println(this.currentx+" "+this.currenty);
+
+    public void printCurrentCoordinates() {
+        System.out.println(this.currentX + " " + this.currentY);
     }
-    public void printPreviusCordinates(){
-        System.out.println(this.previusx+" "+this.previusy);
+
+    public void printLastCoordinates() {
+        System.out.println(this.previousX + " " + this.previousY);
+    }
+
+
+    public void printLastMove(){
+        if(currentX!=previousX){
+            System.out.println("x "+(currentX-previousX));
+        }else if(currentY!=previousY){
+            System.out.println("y "+(currentY-previousY));
+        }
     }
 }
